@@ -10,9 +10,7 @@
 - [Status](#status)
 - [Contact](#contact)
 
-### Project architecture
- 
-![micro](https://user-images.githubusercontent.com/50141193/58799788-845b1c00-8606-11e9-924b-1b4c03a9091c.png)
+
 
 ### Tools and Technologies
 
