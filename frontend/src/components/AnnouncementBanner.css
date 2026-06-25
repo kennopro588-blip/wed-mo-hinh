@@ -1,0 +1,131 @@
+.announcement-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99999;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    transform: translateY(-100%);
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    /* Professional touch: subtle border bottom */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.announcement-bar.slide-in {
+    transform: translateY(0);
+}
+
+.announcement-bar.slide-out {
+    transform: translateY(-100%);
+}
+
+.announcement-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+}
+
+.announcement-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    /* Animate from left to center and stop (forwards) */
+    animation: slideInText 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes slideInText {
+    0% { transform: translateX(-100vw); opacity: 0; }
+    40% { opacity: 1; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+.announcement-icon {
+    font-size: 1.2rem;
+    animation: pulseIcon 2s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+}
+
+@keyframes pulseIcon {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.15); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.8; }
+}
+
+.announcement-text {
+    color: #ffffff;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    margin-right: 10px;
+}
+
+.announcement-cta {
+    background: #ffffff;
+    color: #111;
+    text-decoration: none;
+    padding: 6px 18px;
+    border-radius: 24px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.announcement-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    background: #f8f9fa;
+}
+
+.announcement-close {
+    position: absolute;
+    right: 20px;
+    background: rgba(255,255,255,0.15);
+    border: none;
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.announcement-close:hover {
+    background: rgba(255,255,255,0.3);
+    transform: rotate(90deg) scale(1.1);
+}
+
+/* Ensure page content shifts down when banner shows */
+.announcement-bar.slide-in ~ * {
+    margin-top: 48px;
+}
+

@@ -1,0 +1,220 @@
+/* Payment Success / Failure Page */
+.ps-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    padding: 40px 20px;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+.ps-card {
+    max-width: 580px;
+    width: 100%;
+    background: #111;
+    border-radius: 24px;
+    padding: 50px 40px;
+    text-align: center;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+    border: 1px solid #222;
+    animation: ps-fadein 0.5s ease-out;
+}
+
+@keyframes ps-fadein {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Icon ─── */
+.ps-icon-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+/* Success checkmark SVG */
+.ps-check-circle {
+    width: 90px;
+    height: 90px;
+}
+
+.ps-check-svg {
+    width: 90px;
+    height: 90px;
+}
+
+.ps-check-circle-bg {
+    stroke: #2ecc71;
+    stroke-width: 2;
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    animation: ps-stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.ps-check-path {
+    stroke: #2ecc71;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: ps-stroke 0.4s 0.5s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+@keyframes ps-stroke {
+    to { stroke-dashoffset: 0; }
+}
+
+/* Fail X icon */
+.ps-fail-circle {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: rgba(231, 76, 60, 0.15);
+    border: 3px solid #e74c3c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: #e74c3c;
+    animation: ps-fadein 0.4s ease;
+}
+
+/* ─── Title ─── */
+.ps-title {
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.ps-title.success { color: #2ecc71; }
+.ps-title.failed  { color: #e74c3c; }
+
+.ps-subtitle {
+    color: #888;
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+}
+
+/* ─── Info Grid ─── */
+.ps-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.ps-info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.ps-info-item.full {
+    grid-column: 1 / -1;
+}
+
+.ps-info-item .label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #555;
+}
+
+.ps-info-item .value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #eee;
+}
+
+.ps-info-item .value.highlight {
+    color: #3498db;
+    font-size: 1.05rem;
+}
+
+.ps-info-item .value.gold {
+    color: #d4af37;
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+/* ─── Status Badge ─── */
+.ps-status-badge {
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.ps-status-badge.success {
+    background: rgba(46, 204, 113, 0.12);
+    color: #2ecc71;
+    border: 1px solid rgba(46, 204, 113, 0.3);
+}
+
+/* ─── Countdown ─── */
+.ps-countdown {
+    color: #555;
+    font-size: 0.85rem;
+    margin-bottom: 30px;
+}
+
+.ps-countdown strong {
+    color: #d4af37;
+}
+
+/* ─── Buttons ─── */
+.ps-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.ps-btn-primary {
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #d4af37, #f0d060);
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    font-weight: 800;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+}
+
+.ps-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+}
+
+.ps-btn-secondary {
+    padding: 12px 30px;
+    background: transparent;
+    color: #eee;
+    border: 1px solid #444;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+}
+
+.ps-btn-secondary:hover {
+    background: rgba(255,255,255,0.05);
+    border-color: #888;
+}
+
+@media (max-width: 480px) {
+    .ps-card { padding: 35px 20px; }
+    .ps-info-grid { grid-template-columns: 1fr; }
+    .ps-title { font-size: 1.4rem; }
+}

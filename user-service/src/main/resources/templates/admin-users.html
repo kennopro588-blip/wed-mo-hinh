@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý người dùng - Admin</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; }
+        .container { max-width: 1000px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        h2 { color: #333; text-align: center; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
+        th { background-color: #4CAF50; color: white; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        tr:hover { background-color: #f1f1f1; }
+        .status-active { color: #2ecc71; font-weight: bold; }
+        .status-inactive { color: #e74c3c; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>👥 QUẢN LÝ NGƯỜI DÙNG</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Tên đăng nhập</th>
+                    <th>Họ và Tên</th>
+                    <th>Số điện thoại</th>
+                    <th>Quyền</th>
+                    <th>Trạng thái</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="u : ${listUsers}">
+                    <td th:text="${u.id}"></td>
+                    <td th:text="${u.userName}"></td>
+                    <td th:text="${u.userDetails != null ? u.userDetails.fullName : 'Chưa có tên'}"></td>
+                    <td th:text="${u.userDetails != null ? u.userDetails.phone : 'N/A'}"></td>
+                    <td th:text="${u.role != null ? u.role.roleName : 'USER'}"></td>
+                    <td>
+                        <span th:if="${u.active == 1}" class="status-active">Hoạt động</span>
+                        <span th:unless="${u.active == 1}" class="status-inactive">Bị khóa</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

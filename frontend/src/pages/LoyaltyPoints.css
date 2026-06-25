@@ -1,0 +1,260 @@
+/* ===== LOYALTY POINTS SYSTEM ===== */
+
+/* Badge hiển thị điểm trên Header */
+.loyalty-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: linear-gradient(135deg, #d4af37, #f9e07e);
+  color: #5a3e00;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+}
+.loyalty-badge:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 10px rgba(212,175,55,0.5);
+}
+.loyalty-badge .pts-icon { font-size: 1rem; }
+
+/* ===== LOYALTY PAGE ===== */
+.loyalty-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  padding: 40px 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.loyalty-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Hero Card */
+.loyalty-hero {
+  background: linear-gradient(135deg, #d4af37 0%, #f9e07e 50%, #d4af37 100%);
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 40px rgba(212,175,55,0.3);
+  position: relative;
+  overflow: hidden;
+}
+.loyalty-hero::before {
+  content: '⭐';
+  position: absolute;
+  font-size: 8rem;
+  opacity: 0.1;
+  top: -20px;
+  right: -20px;
+}
+.loyalty-hero h2 {
+  color: #5a3e00;
+  font-size: 1.2rem;
+  margin: 0 0 5px 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.loyalty-hero .pts-big {
+  font-size: 4rem;
+  font-weight: 900;
+  color: #5a3e00;
+  margin: 10px 0;
+  line-height: 1;
+}
+.loyalty-hero .pts-label {
+  color: #7a5500;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Tier Badge */
+.loyalty-tier {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 15px;
+  padding: 8px 20px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 30px;
+  font-weight: bold;
+  color: #5a3e00;
+  font-size: 0.95rem;
+}
+
+/* Progress Bar */
+.pts-progress-wrap {
+  margin-top: 20px;
+}
+.pts-progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #7a5500;
+  margin-bottom: 6px;
+}
+.pts-progress-bar {
+  height: 10px;
+  background: rgba(255,255,255,0.4);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.pts-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #5a3e00, #a07000);
+  border-radius: 10px;
+  transition: width 1s ease;
+}
+
+/* Stats Grid */
+.loyalty-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 25px;
+}
+.loyalty-stat-card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(212,175,55,0.2);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+.loyalty-stat-card .stat-icon { font-size: 1.8rem; margin-bottom: 8px; }
+.loyalty-stat-card .stat-val {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #f9e07e;
+}
+.loyalty-stat-card .stat-label {
+  font-size: 0.8rem;
+  color: #aaa;
+  margin-top: 4px;
+}
+
+/* How it works */
+.loyalty-section {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 25px;
+}
+.loyalty-section h3 {
+  color: #f9e07e;
+  margin: 0 0 20px 0;
+  font-size: 1.1rem;
+}
+
+.how-it-works {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+.hiw-item {
+  text-align: center;
+  color: white;
+}
+.hiw-icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+.hiw-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #f9e07e;
+  font-size: 0.9rem;
+}
+.hiw-desc {
+  font-size: 0.8rem;
+  color: #aaa;
+  line-height: 1.4;
+}
+
+/* History Table */
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.history-table th {
+  padding: 10px;
+  text-align: left;
+  color: #f9e07e;
+  font-size: 0.85rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.history-table td {
+  padding: 12px 10px;
+  color: #ddd;
+  font-size: 0.88rem;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.pts-earned { color: #2ecc71; font-weight: bold; }
+.pts-spent { color: #e74c3c; font-weight: bold; }
+
+/* Popup notification */
+.loyalty-popup {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  background: linear-gradient(135deg, #d4af37, #f9e07e);
+  color: #5a3e00;
+  padding: 15px 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 30px rgba(212,175,55,0.5);
+  z-index: 9999;
+  font-weight: bold;
+  animation: slideInRight 0.4s ease, fadeOut 0.4s ease 3.5s forwards;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.loyalty-popup .lp-icon { font-size: 1.5rem; }
+
+@keyframes slideInRight {
+  from { transform: translateX(100px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes fadeOut {
+  to { opacity: 0; transform: translateX(100px); }
+}
+
+/* Tiers */
+.tiers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.tier-card {
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  border: 2px solid transparent;
+  opacity: 0.5;
+  transition: all 0.3s;
+}
+.tier-card.active {
+  opacity: 1;
+  border-color: #f9e07e;
+  box-shadow: 0 0 20px rgba(249,224,126,0.3);
+}
+.tier-card.bronze { background: linear-gradient(135deg, #cd7f32, #e8a86e); }
+.tier-card.silver { background: linear-gradient(135deg, #a8a9ad, #d4d5d9); }
+.tier-card.gold { background: linear-gradient(135deg, #d4af37, #f9e07e); }
+.tier-card.diamond { background: linear-gradient(135deg, #00d2ff, #3a7bd5); }
+.tier-card .tier-icon { font-size: 1.5rem; }
+.tier-card .tier-name { font-weight: bold; color: white; font-size: 0.85rem; margin: 5px 0 2px 0; }
+.tier-card .tier-req { font-size: 0.7rem; color: rgba(255,255,255,0.8); }
+
+@media (max-width: 600px) {
+  .loyalty-stats { grid-template-columns: 1fr 1fr; }
+  .how-it-works { grid-template-columns: 1fr; }
+  .tiers-grid { grid-template-columns: 1fr 1fr; }
+}
